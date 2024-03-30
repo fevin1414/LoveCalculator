@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
@@ -9,6 +9,7 @@ const Modal = ({
   percentage,
   comment,
 }) => {
+  const modalRef = useRef(null);
   const closeModal = () => {
     const modalDialog = document.getElementById("my_modal_5");
     if (modalDialog) {
