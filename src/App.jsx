@@ -1,13 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import Modal from "./Components/Modal";
 import "./App.css";
+import useLoveCalculator from "./hooks/useLoveCalculator";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [yourName, setYourName] = useState("");
   const [partnerName, setPartnerName] = useState("");
+  const [percentage, setPercentage] = useState(0);
+  const [comment, setComment] = useState();
+
+  useEffect(() => {
+    if (yourName && partnerName) {
+      const fetchLoveResult = async () => {
+        const result = await useLoveCalculator(yourName, partnerName);
+        setPercentage(result.percentage);
+        setComment(result.result);
+      };
+
+      fetchLoveResult();
+    }
+  }, [yourName, partnerName]);
 
   function openModal() {
     const modalDialog = document.getElementById("my_modal_5");
@@ -15,10 +30,6 @@ function App() {
       modalDialog.open = true;
       setIsModalOpen(true);
     }
-  }
-
-  function closeModal() {
-    setIsModalOpen(false);
   }
 
   return (
@@ -54,6 +65,8 @@ function App() {
         displayModal={openModal}
         yourName={yourName}
         partnerName={partnerName}
+        percentage={percentage}
+        comment={comment}
       />
     </div>
   );

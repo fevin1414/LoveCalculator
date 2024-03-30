@@ -2,7 +2,13 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-const Modal = ({ displayModal, partnerName, yourName }) => {
+const Modal = ({
+  displayModal,
+  partnerName,
+  yourName,
+  percentage,
+  comment,
+}) => {
   const closeModal = () => {
     const modalDialog = document.getElementById("my_modal_5");
     if (modalDialog) {
@@ -78,11 +84,11 @@ const Modal = ({ displayModal, partnerName, yourName }) => {
               style={{ "--value": 70 }}
               role="progressbar"
             >
-              70%
+              {percentage} %
             </div>
           </div>
           <p className="text-lg font-bold mt-3 text-center love-ya-like-a-sister-regular">
-            Result
+            {comment}
           </p>
         </div>
       </dialog>
