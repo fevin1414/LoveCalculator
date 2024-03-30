@@ -51,13 +51,13 @@ function App() {
           type="text"
           placeholder="Your name"
           onChange={(e) => setYourName(e.target.value)}
-          className="input input-bordered rounded-lg shadow-lg  madimi-one-regular w-full md:w-auto max-w-md md:mr-4 text-lg mb-4 md:mb-0"
+          className="input input-bordered rounded-lg shadow-lg dark:bg-white  madimi-one-regular w-full md:w-auto max-w-md md:mr-4 text-lg mb-4 md:mb-0"
         />
         <input
           type="text"
           placeholder="His/Her name"
           onChange={(e) => setPartnerName(e.target.value)}
-          className="input input-bordered rounded-lg shadow-lg  madimi-one-regular w-full md:w-auto max-w-md md:ml-4 text-lg"
+          className="input input-bordered rounded-lg shadow-lg dark:bg-white madimi-one-regular w-full md:w-auto max-w-md md:ml-4 text-lg"
         />
       </div>
 

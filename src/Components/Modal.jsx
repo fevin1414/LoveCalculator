@@ -30,10 +30,10 @@ const Modal = ({
       </button>
       <dialog
         id="my_modal_5"
-        className="modal modal-top sm:modal-middle"
+        className="modal modal-top sm:modal-middle "
         open={false}
       >
-        <div className="modal-box">
+        <div className="modal-box dark:bg-white">
           <button
             onClick={closeModal}
             className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
@@ -61,7 +61,7 @@ const Modal = ({
               type="text"
               disabled
               value={yourName}
-              className="input input-bordered rounded-lg shadow-lg w-full madimi-one-regular max-w-md mr-4 text-lg"
+              className="input input-bordered rounded-lg shadow-lg w-full madimi-one-regular  max-w-md mr-4 text-lg disabled:bg-white disabled:text-black "
             />
             <span className="text-pink-500">
               <FontAwesomeIcon
@@ -75,13 +75,13 @@ const Modal = ({
               type="text"
               value={partnerName}
               disabled
-              className="input input-bordered rounded-lg shadow-lg madimi-one-regular w-full max-w-md ml-4 text-lg"
+              className="input input-bordered rounded-lg shadow-lg madimi-one-regular  w-full max-w-md ml-4 text-lg disabled:bg-white disabled:text-black "
             />
           </div>
           <div className="radial-progress-wrapper flex justify-center mt-5">
             <div
               className="radial-progress bg-primary text-primary-content border-4 border-primary"
-              style={{ "--value": 70 }}
+              style={{ "--value": `${percentage}` }}
               role="progressbar"
             >
               {percentage} %
