@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-const Modal = ({ displayModal }) => {
+const Modal = ({ displayModal, partnerName, yourName }) => {
   const closeModal = () => {
     const modalDialog = document.getElementById("my_modal_5");
     if (modalDialog) {
@@ -10,17 +10,21 @@ const Modal = ({ displayModal }) => {
     }
   };
 
+  const isCalculateDisabled =
+    yourName.trim() === "" || partnerName.trim() === "";
+
   return (
     <div>
       <button
         onClick={displayModal}
+        disabled={isCalculateDisabled}
         className="btn bg-white text-red-500 madimi-one-regular mt-6 px-8 py-3 text-lg"
       >
         Calculate ❤️
       </button>
       <dialog
         id="my_modal_5"
-        className="modal modal-bottom sm:modal-middle"
+        className="modal modal-top sm:modal-middle"
         open={false}
       >
         <div className="modal-box">
@@ -50,7 +54,7 @@ const Modal = ({ displayModal }) => {
             <input
               type="text"
               disabled
-              placeholder="Your name"
+              value={yourName}
               className="input input-bordered rounded-lg shadow-lg w-full madimi-one-regular max-w-md mr-4 text-lg"
             />
             <span className="text-pink-500">
@@ -63,7 +67,7 @@ const Modal = ({ displayModal }) => {
             </span>
             <input
               type="text"
-              placeholder="His/Her name"
+              value={partnerName}
               disabled
               className="input input-bordered rounded-lg shadow-lg madimi-one-regular w-full max-w-md ml-4 text-lg"
             />
